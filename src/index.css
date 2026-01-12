@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: 255 255 255;
+  --color-surface: 250 248 245;
+  --color-primary: 168 124 82;      /* woody */
+  --color-primary-dark: 135 99 60;
+  --color-text: 34 34 34;
+  --color-muted: 120 120 120;
+  --color-border: 220 220 220;
+}
+
+@layer utilities {
+  .nav-item {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+  }
+
+  .nav-item:hover {
+    color: rgb(var(--color-primary));
+  }
+
+    .category-card {
+    background: rgb(var(--color-bg));
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.25s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .icon-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: rgb(var(--color-primary));
+  }
+  .category-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgb(var(--color-text));
+    font-weight: 500;
+  }
+}
+
+
+
+@layer utilities {
+  .bg-bg {
+    background-color: rgb(var(--color-bg));
+  }
+
+  .bg-surface {
+    background-color: rgb(var(--color-surface));
+  }
+
+  .bg-primary {
+    background-color: rgb(var(--color-primary));
+  }
+
+  .text-text {
+    color: rgb(var(--color-text));
+  }
+
+  .text-muted {
+    color: rgb(var(--color-muted));
+  }
+
+  .border-border {
+    border-color: rgb(var(--color-border));
+  }
+}
+
+@layer utilities {
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(var(--color-text));
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: rgb(var(--color-primary));
+  }
+
+  .mega-menu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 1rem;
+    width: 520px;
+    background: rgb(var(--color-bg));
+    border: 1px solid rgb(var(--color-border));
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+  .mega-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgb(var(--color-text));
+    margin-bottom: 0.75rem;
+  }
+
+  .mega-link {
+    font-size: 0.875rem;
+    color: rgb(var(--color-muted));
+    transition: color 0.2s ease;
+  }
+
+  .mega-link:hover {
+    color: rgb(var(--color-primary));
+  }
+
+  .mobile-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgb(var(--color-text));
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
