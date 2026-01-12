@@ -12,19 +12,44 @@ collections:
     folder: "content/products"
     create: true
     slug: "{{slug}}"
+
     fields:
-      - { label: "Product Name", name: "name", widget: "string" }
-      - { label: "Price", name: "price", widget: "string" }
+      - label: "Product Name"
+        name: "name"
+        widget: "string"
 
-      - { label: "Short Description", name: "shortDesc", widget: "text" }
-      - { label: "Long Description", name: "description", widget: "markdown" }
+      - label: "Price"
+        name: "price"
+        widget: "string"
 
-      - { label: "Material", name: "material", widget: "string" }
-      - { label: "Finish", name: "finish", widget: "string" }
-      - { label: "Dimensions", name: "dimensions", widget: "string" }
-      - { label: "Delivery Time", name: "delivery", widget: "string" }
+      - label: "Short Description"
+        name: "shortDesc"
+        widget: "text"
+
+      - label: "Long Description"
+        name: "description"
+        widget: "markdown"
+
+      - label: "Material"
+        name: "material"
+        widget: "string"
+
+      - label: "Finish"
+        name: "finish"
+        widget: "string"
+
+      - label: "Dimensions"
+        name: "dimensions"
+        widget: "string"
+
+      - label: "Delivery Time"
+        name: "delivery"
+        widget: "string"
 
       - label: "Product Images"
         name: "images"
         widget: "list"
-        field: { label: "Image", name: "image", widget: "image" }
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
