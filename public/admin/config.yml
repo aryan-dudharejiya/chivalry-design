@@ -6,6 +6,11 @@ backend:
 media_folder: "public/images/products"
 public_folder: "/images/products"
 
+media_library:
+  name: uploadcare
+  config:
+    publicKey: demopublickey
+
 collections:
   - name: "products"
     label: "Products"
