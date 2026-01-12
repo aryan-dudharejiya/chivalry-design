@@ -1,7 +1,15 @@
 {
   "rewrites": [
     {
-      "source": "/((?!assets/.*).*)",
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/(.*)",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/((?!admin|assets|images|favicon.ico).*)",
       "destination": "/index.html"
     }
   ]
