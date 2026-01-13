@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import {
   Home,
   About,
@@ -9,6 +9,15 @@ import {
 } from "./pages";
 
 const App = () => {
+  const location = useLocation();
+
+  // 🔴 IMPORTANT:
+  // Do NOT render React routes for /admin
+  // This allows Decap CMS to load correctly
+  if (location.pathname.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />

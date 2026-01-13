@@ -1,15 +1,9 @@
 backend:
-  name: github
-  repo: aryan-dudharejiya/chivalry-design
+  name: git-gateway
   branch: main
 
-media_folder: "public/images/products"
-public_folder: "/images/products"
-
-media_library:
-  name: uploadcare
-  config:
-    publicKey: demopublickey
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "products"
@@ -17,44 +11,8 @@ collections:
     folder: "content/products"
     create: true
     slug: "{{slug}}"
-
     fields:
-      - label: "Product Name"
-        name: "name"
-        widget: "string"
-
-      - label: "Price"
-        name: "price"
-        widget: "string"
-
-      - label: "Short Description"
-        name: "shortDesc"
-        widget: "text"
-
-      - label: "Long Description"
-        name: "description"
-        widget: "markdown"
-
-      - label: "Material"
-        name: "material"
-        widget: "string"
-
-      - label: "Finish"
-        name: "finish"
-        widget: "string"
-
-      - label: "Dimensions"
-        name: "dimensions"
-        widget: "string"
-
-      - label: "Delivery Time"
-        name: "delivery"
-        widget: "string"
-
-      - label: "Product Images"
-        name: "images"
-        widget: "list"
-        field:
-          label: "Image"
-          name: "image"
-          widget: "image"
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Images", name: "images", widget: "image", multiple: true }
