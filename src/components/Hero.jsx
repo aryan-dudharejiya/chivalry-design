@@ -40,7 +40,7 @@ export default function Hero() {
             {/* CTA */}
             <div className="mt-10">
               <a
-                href="/sofas"
+                href="/products"
                 className="inline-block border border-[rgb(var(--color-primary))] px-8 py-3 text-sm tracking-wider uppercase text-[rgb(var(--color-primary))] hover:bg-[rgb(var(--color-primary))] hover:text-white transition"
               >
                 Explore Sofas

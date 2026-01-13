@@ -7,6 +7,7 @@ import TestimonialsSection from "./TestimonialsSection.jsx";
 import ProductShowcase from "./ProductShowcase.jsx";
 import Milestones from "./Milestones.jsx";
 import Footer from "./Footer.jsx";
+import WoodLoader from "./WoodLoader.jsx";
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   TestimonialsSection,
   Milestones,
   Footer,
+  WoodLoader,
 };

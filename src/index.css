@@ -138,4 +138,40 @@
   scrollbar-width: none;
 }
 
+.wood-bar {
+  width: 10px;
+  height: 44px;
+  border-radius: 6px;
+  background: linear-gradient(
+    180deg,
+    #8b5e3c,
+    #6b4f3f
+  );
+}
 
+@keyframes woodPulse {
+  0% {
+    opacity: 0.3;
+    transform: scaleY(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.6);
+  }
+}
+
+.animate-wood {
+  animation: woodPulse 1.2s ease-in-out infinite;
+}
+
+.delay-150 {
+  animation-delay: 0.15s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}

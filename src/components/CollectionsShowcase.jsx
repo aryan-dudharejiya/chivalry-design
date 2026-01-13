@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+const SOFA_LINK = "/products?category=sectional-sofas";
 
 const mobileCards = [
   {
-    image: "https://images.pexels.com/photos/1648768/pexels-photo-1648768.jpeg",
-    label: "350+ Unique Pieces",
-    title: "Masterpieces",
+    image:
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=80",
+    label: "Handcrafted Comfort",
+    title: "Signature Sofa Sets",
   },
   {
-    image: "https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg",
-    label: "999+ New Pieces",
-    title: "Collection",
+    image:
+      "https://images.unsplash.com/photo-1675756544970-968f9e3f7ca5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNvZmFzfGVufDB8fDB8fHww",
+    label: "Designed for Living",
+    title: "Sectional Sofas",
   },
   {
-    image: "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg",
-    label: "490+ New Pieces",
-    title: "New Stock",
+    image:
+      "https://plus.unsplash.com/premium_photo-1683134520102-a7b65579c4bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c29mYXN8ZW58MHx8MHx8fDA%3D",
+    label: "Relaxed Luxury",
+    title: "Contemporary Sofas",
   },
 ];
 
@@ -38,24 +44,24 @@ export default function CollectionsFlow() {
         {/* ===================== */}
         <div className="max-w-2xl mb-16">
           <p className="text-xs tracking-[0.3em] uppercase text-[rgb(var(--color-primary))] mb-4">
-            Latest Collection
+            Sofa Collections
           </p>
 
           <h2 className="text-3xl font-light leading-snug md:text-4xl text-text">
-            Discover Exclusive{" "}
+            Sofas Crafted for{" "}
             <span className="text-[rgb(var(--color-primary))]">
-              Furniture Collections
+              Everyday Living
             </span>
           </h2>
 
           <p className="mt-6 text-sm leading-relaxed md:text-base text-muted">
-            Chivalry Design presents curated furniture collections crafted for
-            warm, modern luxury living.
+            From expansive sectional sofas to timeless sofa sets, each piece is
+            thoughtfully designed for comfort, proportion, and lasting beauty.
           </p>
         </div>
 
         {/* ===================== */}
-        {/* DESKTOP VIEW (UNCHANGED) */}
+        {/* DESKTOP VIEW */}
         {/* ===================== */}
         <div className="hidden grid-cols-3 gap-8 mb-24 md:grid">
           {mobileCards.map((card) => (
@@ -64,7 +70,7 @@ export default function CollectionsFlow() {
         </div>
 
         {/* ===================== */}
-        {/* MOBILE CAROUSEL (ONLY CHANGE) */}
+        {/* MOBILE CAROUSEL */}
         {/* ===================== */}
         <div className="md:hidden relative h-[360px]">
           <div
@@ -82,18 +88,18 @@ export default function CollectionsFlow() {
         </div>
 
         {/* ===================== */}
-        {/* SECTION 2 – LIFESTYLE (DESKTOP ONLY) */}
+        {/* DESKTOP LIFESTYLE SOFAS */}
         {/* ===================== */}
         <div className="hidden grid-cols-2 gap-12 mt-10 md:grid">
           <LargeCard
-            image="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg"
-            label="500+ Unique Designs"
-            title="Bedroom"
+            image="https://images.unsplash.com/photo-1630585308572-f53438fc684f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mYXN8ZW58MHx8MHx8fDA%3D"
+            label="Made to Order"
+            title="Luxury Sectionals"
           />
           <LargeCard
-            image="https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg"
-            label="390+ New Pieces"
-            title="Living Room"
+            image="https://images.unsplash.com/photo-1512212621149-107ffe572d2f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNvZmFzfGVufDB8fDB8fHww"
+            label="Comfort First Design"
+            title="Modern Sofa Sets"
           />
         </div>
       </div>
@@ -106,10 +112,12 @@ export default function CollectionsFlow() {
 /* ===================== */
 function DesktopCard({ image, label, title }) {
   return (
-    <div className="relative h-[360px] rounded-2xl overflow-hidden">
-      <img src={image} alt={title} className="object-cover w-full h-full" />
-      <Overlay label={label} title={title} />
-    </div>
+    <Link to={SOFA_LINK} className="block">
+      <div className="relative h-[360px] rounded-2xl overflow-hidden">
+        <img src={image} alt={title} className="object-cover w-full h-full" />
+        <Overlay label={label} title={title} />
+      </div>
+    </Link>
   );
 }
 
@@ -118,10 +126,12 @@ function DesktopCard({ image, label, title }) {
 /* ===================== */
 function MobileCard({ image, label, title }) {
   return (
-    <div className="relative h-[360px] rounded-2xl overflow-hidden">
-      <img src={image} alt={title} className="object-cover w-full h-full" />
-      <Overlay label={label} title={title} />
-    </div>
+    <Link to={SOFA_LINK} className="block">
+      <div className="relative h-[360px] rounded-2xl overflow-hidden">
+        <img src={image} alt={title} className="object-cover w-full h-full" />
+        <Overlay label={label} title={title} />
+      </div>
+    </Link>
   );
 }
 
@@ -130,10 +140,12 @@ function MobileCard({ image, label, title }) {
 /* ===================== */
 function LargeCard({ image, label, title }) {
   return (
-    <div className="relative h-[440px] rounded-3xl overflow-hidden">
-      <img src={image} alt={title} className="object-cover w-full h-full" />
-      <Overlay label={label} title={title} large />
-    </div>
+    <Link to={SOFA_LINK} className="block">
+      <div className="relative h-[440px] rounded-3xl overflow-hidden">
+        <img src={image} alt={title} className="object-cover w-full h-full" />
+        <Overlay label={label} title={title} large />
+      </div>
+    </Link>
   );
 }
 

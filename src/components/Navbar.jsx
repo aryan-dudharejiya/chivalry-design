@@ -2,14 +2,42 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const navLinks = [
-  { label: "All Categories", to: "/products" },
-  { label: "Collections", to: "/products?category=collections" },
-  { label: "Sofas", to: "/products?category=sofas", highlight: true },
-  { label: "Dine", to: "/products?category=dine" },
-  { label: "Sleep", to: "/products?category=sleep" },
-  { label: "Store", to: "/products?category=store" },
-  { label: "Work", to: "/products?category=work" },
-  { label: "Décor", to: "/products?category=decor" },
+  { label: "All Furniture", to: "/products" },
+
+  // SOFA-FOCUSED (HIGH CONVERSION)
+  {
+    label: "Sofa Sets",
+    to: "/products?category=sectional-sofas",
+    highlight: true,
+  },
+  {
+    label: "Sectional Sofas",
+    to: "/products?category=sectional-sofas",
+  },
+  {
+    label: "Sofa Beds",
+    to: "/products?category=accent",
+  },
+  {
+    label: "Accent Chairs",
+    to: "/products?category=accent",
+  },
+
+  // SUPPORTING CATEGORIES
+  {
+    label: "Coffee Tables",
+    to: "/products?category=accent",
+  },
+  {
+    label: "Storage & Display",
+    to: "/products?category=storage",
+  },
+  {
+    label: "Luxury Décor",
+    to: "/products?category=decor",
+  },
+
+  // BRAND
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
 ];

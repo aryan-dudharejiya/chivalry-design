@@ -2,7 +2,7 @@ function CategoryIcon({ type }) {
   const common = "w-8 h-8 stroke-[1.5]";
 
   switch (type) {
-    case "wall":
+    case "sofa":
       return (
         <svg
           className={common}
@@ -10,10 +10,12 @@ function CategoryIcon({ type }) {
           fill="none"
           stroke="currentColor"
         >
-          <rect x="4" y="4" width="16" height="12" rx="2" />
+          <rect x="3" y="10" width="18" height="5" rx="1" />
+          <path d="M6 10V7M18 10V7" />
         </svg>
       );
-    case "stool":
+
+    case "corner-sofa":
       return (
         <svg
           className={common}
@@ -21,22 +23,10 @@ function CategoryIcon({ type }) {
           fill="none"
           stroke="currentColor"
         >
-          <rect x="6" y="4" width="12" height="6" />
-          <path d="M8 10v10M16 10v10" />
+          <path d="M3 10h12v6H3zM15 14h6v2h-6z" />
         </svg>
       );
-    case "console":
-      return (
-        <svg
-          className={common}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-        >
-          <rect x="3" y="6" width="18" height="6" />
-          <path d="M6 12v6M18 12v6" />
-        </svg>
-      );
+
     case "sofa-bed":
       return (
         <svg
@@ -49,7 +39,8 @@ function CategoryIcon({ type }) {
           <path d="M5 10V7M19 10V7" />
         </svg>
       );
-    case "coffee-table":
+
+    case "recliner":
       return (
         <svg
           className={common}
@@ -57,33 +48,11 @@ function CategoryIcon({ type }) {
           fill="none"
           stroke="currentColor"
         >
-          <rect x="4" y="6" width="16" height="4" />
-          <path d="M6 10v8M18 10v8" />
+          <rect x="4" y="9" width="16" height="6" rx="2" />
+          <path d="M8 9V6M16 9V6" />
         </svg>
       );
-    case "corner-sofa":
-      return (
-        <svg
-          className={common}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-        >
-          <path d="M3 10h12v6H3zM15 14h6v2h-6z" />
-        </svg>
-      );
-    case "wall-unit":
-      return (
-        <svg
-          className={common}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-        >
-          <rect x="4" y="3" width="16" height="6" />
-          <rect x="4" y="11" width="16" height="10" />
-        </svg>
-      );
+
     case "sofa-set":
       return (
         <svg
@@ -96,20 +65,64 @@ function CategoryIcon({ type }) {
           <path d="M7 10V7M17 10V7" />
         </svg>
       );
+
+    case "coffee-table":
+      return (
+        <svg
+          className={common}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <rect x="4" y="6" width="16" height="4" />
+          <path d="M6 10v8M18 10v8" />
+        </svg>
+      );
+
+    case "console":
+      return (
+        <svg
+          className={common}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <rect x="3" y="6" width="18" height="6" />
+          <path d="M6 12v6M18 12v6" />
+        </svg>
+      );
+
+    case "wall-unit":
+      return (
+        <svg
+          className={common}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <rect x="4" y="3" width="16" height="6" />
+          <rect x="4" y="11" width="16" height="10" />
+        </svg>
+      );
+
     default:
       return null;
   }
 }
 
+/**
+ * HIGH-INTENT, HIGH-SEARCH CATEGORIES
+ * Sofa-first. This is what actually converts.
+ */
 const categories = [
-  { name: "Wall Art", icon: "wall" },
-  { name: "Stool", icon: "stool" },
-  { name: "Console", icon: "console" },
-  { name: "Sofa Bed", icon: "sofa-bed" },
-  { name: "Coffee Table", icon: "coffee-table" },
-  { name: "Corner Sofa", icon: "corner-sofa" },
-  { name: "Wall Unit", icon: "wall-unit" },
-  { name: "Sofa Set", icon: "sofa-set" },
+  { name: "Sofas", icon: "sofa" },
+  { name: "Sectional Sofas", icon: "corner-sofa" },
+  { name: "Sofa Cum Beds", icon: "sofa-bed" },
+  { name: "Recliner Sofas", icon: "recliner" },
+  { name: "Sofa Sets (3+2 / 3+1+1)", icon: "sofa-set" },
+  { name: "Coffee Tables", icon: "coffee-table" },
+  { name: "Console Tables", icon: "console" },
+  { name: "TV Units & Wall Storage", icon: "wall-unit" },
 ];
 
 export default function CategoryExplore() {
@@ -120,10 +133,10 @@ export default function CategoryExplore() {
         <div className="flex flex-col gap-4 mb-12 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-xs tracking-[0.2em] uppercase text-muted mb-2">
-              Explore by Category
+              Shop by Category
             </p>
             <h2 className="text-2xl font-medium md:text-3xl text-text">
-              Discover Categories
+              Find the Right Sofa for Your Home
             </h2>
           </div>
 
@@ -141,7 +154,10 @@ export default function CategoryExplore() {
           {categories.map((cat) => (
             <a
               key={cat.name}
-              href={`/category/${cat.name.toLowerCase().replace(" ", "-")}`}
+              href={`/category/${cat.name
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "")}`}
               className="category-card"
             >
               <div className="icon-wrap">
